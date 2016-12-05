@@ -28,7 +28,6 @@ class TestSearchViewFunctionality(TestCase):
         """Test search functionality works and returns the required data"""
         response = self.client.get(self.search_url, self.SearchBookInCategory)
         self.assertTrue(response.status_code, 200)
-        print(response.context['object_list'])
         self.assertIn(self.categoryName, str(response.context['object_list'][0]) )
 
     def TestBookTitleSearchIsCaseInsensitive(self):

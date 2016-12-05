@@ -33,3 +33,7 @@ class TestSearchModels(TestCase):
         createBook = Book.objects.create(title="python basics", category= self.createCategory)
         after_count = Book.objects.count()
         self.assertEquals(after_count, initial_count + 1)
+
+    def TestcategoryModelInstances(self):
+        category = Category.objects.create(name='category')
+        self.assertIsInstance(category, Category)
