@@ -11,7 +11,7 @@ class SearchListView(ListView):
     def get_context_data(self, **kwargs):
         """Override the SearchListView default context data """
         context = super(SearchListView, self).get_context_data(**kwargs)
-        context['category'] = Category.objects.all()
+        context['categories'] = Category.objects.all()
         return context
 
     def get_queryset(self):

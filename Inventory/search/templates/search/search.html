@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Book Search</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input name="title" type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <select class="form-control" name="categoryName" required="required">
+                          {% for category in categories %}
+                          <option value="{{category}}" >{{category}} </option>
+                          {% endfor %}
+                          <option value="">Any </option>
+                        </select>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="jumbotron">
+              {% for book in object_list%}
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    Category: {{ book.category }}
+                </div>
+                <div class="panel-body">
+                   Title: {{ book.title}}
+                </div>
+            </div>
+            {% empty %}
+            <p>
+              No category or book created
+            </p>
+            {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
