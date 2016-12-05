@@ -4,9 +4,8 @@ class Category(models.Model):
     """Create category model"""
     name = models.CharField(unique=True, max_length=250)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
-
 
 class Book(models.Model):
     """Creates book model"""
@@ -14,5 +13,5 @@ class Book(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
-    def __unicode__(self):
+    def __str__(self):
             return "{} in category {}".format(self.title, self.category)

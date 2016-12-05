@@ -13,12 +13,13 @@ class TestSearchViewFunctionality(TestCase):
         self.bookTitle = 'learning python basics'
         self.partialBookName = 'learning'
         self.caseinsensitiveBookName = 'LEARNING python basics'
+        self.caseinsensitiveCategoryName = 'python'
         self.categorySearch = {'category': self.categoryName }
         self.bookSearch = {'querystring' : self.bookTitle }
         self.SearchBookInCategory = {'querystring': self.bookTitle, 'category': self.categoryName}
         self.SearchPartialbookTitle = {'querystring': self.partialBookName, 'category': self.categoryName}
-        self.SearchcaseInsensitiveBookTitle = {'querystring': self.caseinsensitiveBookName, 'category': self.categoryName}
-        self.unknownbooktitle = 'Javascript'
+        self.SearchcaseInsensitiveBookTitle = {'querystring': self.caseinsensitiveBookName, 'category': self.caseinsensitiveCategoryName}
+        self.unknownbooktitle = 'Javhdfjkdsjfkdlf'
         self.emptySearch = {'querystring': '', 'category': ''}
         self.createCategory = Category.objects.create(name=self.categoryName)
         self.createBook = Book.objects.create(title=self.bookTitle, category=self.createCategory)
@@ -38,7 +39,7 @@ class TestSearchViewFunctionality(TestCase):
 
     def TestPartialBookTitleSearchWorks(self):
         """Test user can search by partial book titles """
-        response = self.client.get(self.search_url,self.SearchPartialbookTitle)
+        response = self.client.get(self.search_url, self.SearchPartialbookTitle)
         self.assertTrue(response.status_code, 200)
         self.assertIn(self.bookTitle, str(response.context['object_list'][0]))
 
