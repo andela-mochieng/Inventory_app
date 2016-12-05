@@ -21,10 +21,10 @@ class TestSearchModels(TestCase):
 
     def TestCategoryNameIsUnique(self):
         """Test category name is unique """
-        with self.assertRaise(IntegrityError):
+        with self.assertRaises(IntegrityError):
             new_category = Category.objects.create(name=self.categoryName)
 
     def TestBookModelIsCreated(self):
         """Test that book model is created """
         initial_count = Book.objects.count()
-        createBook = Book.objects.create(title="python basics", category= self.createCategory)    
+        createBook = Book.objects.create(title="python basics", category= self.createCategory)
