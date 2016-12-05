@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generics import ListView
+from django.views.generic import ListView
 from django.db.models import Q
 from django.http import Http404
 from .models import Book, Category
@@ -27,8 +27,7 @@ class SearchListView(ListView):
         elif categoryName:
             search_results = Book.objects.filter(category__name__iexact=categoryName)
         else:
-            return Bookobjects.all()
-
+            return Book.objects.all()
         if search_results:
             return search_results
         else:
