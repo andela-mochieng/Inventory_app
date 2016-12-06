@@ -1,0 +1,9 @@
+[report]
+omit =
+      */python?.?/*
+      *site-packages/*
+      *Inventory/settings/*
+      *search/__init__.py*
+      *search/migrations/*
+      *manage.py*
+      *search/apps.py*
