@@ -34,6 +34,6 @@ class TestSearchModels(TestCase):
         after_count = Book.objects.count()
         self.assertEquals(after_count, initial_count + 1)
 
-    def TestcategoryModelInstances(self):
+    def TestCategoryModelInstance(self):
         category = Category.objects.create(name='category')
         self.assertIsInstance(category, Category)
