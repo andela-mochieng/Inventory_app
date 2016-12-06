@@ -2,8 +2,9 @@
 omit =
       */python?.?/*
       *site-packages/*
-      *Inventory/settings/*
+      */Inventory/*
       *search/__init__.py*
       *search/migrations/*
       *manage.py*
       *search/apps.py*
+      */tests/*
